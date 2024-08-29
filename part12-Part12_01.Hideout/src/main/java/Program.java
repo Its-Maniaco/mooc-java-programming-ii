@@ -7,7 +7,6 @@ public class Program {
         Scanner scanner = new Scanner(System.in);
         // you may try out your class here
 
-        // question has wrong output
         Hideout<String> den = new Hideout<>();
         System.out.println(den.isInHideout());
         den.putIntoHideout("peekaboo");

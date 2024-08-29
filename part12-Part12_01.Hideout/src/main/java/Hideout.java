@@ -1,31 +1,30 @@
-import java.util.ArrayList;
 
 public class Hideout<T> {
-    private ArrayList<T> hideList;
-
-    public Hideout() {
-        this.hideList = new ArrayList<>();
-    }
+    private T hidden;
 
     public void putIntoHideout(T toHide) {
-        if (this.hideList.contains(toHide)) {
-            this.hideList.remove(toHide);
-        } else {
-            this.hideList.add(toHide);
+        if (this.hidden != null) {
+            if (this.hidden.equals(toHide)) {
+                this.hidden = null;
+            }
         }
+        this.hidden = toHide;
+
     }
 
     // return last inserted element
     public T takeFromHideout() {
-        if (this.hideList.isEmpty()) {
+        if (this.hidden == null) {
             return null;
         } else {
-            return this.hideList.get(this.hideList.size() - 1);
+            T res = this.hidden;
+            this.hidden = null;
+            return res;
         }
     }
 
     public boolean isInHideout() {
-        if (this.hideList.isEmpty())
+        if (this.hidden == null)
             return false;
         return true;
     }
